@@ -7,8 +7,8 @@ import "tw-elements";
 import ColorItem from "../Home/color-item";
 import Toggle from "./Toggle";
 import logo from "../../../public/assets/logo2.png";
-
 import axios from "axios";
+
 const Navbar = () => {
   let btn = document.getElementById("btn");
   let modal = document.getElementById("modal");
@@ -28,7 +28,7 @@ const Navbar = () => {
         localStorage.getItem(import.meta.env.REACT_APP_LOCALHOST_KEY)
       )._id;
       const response = await axios.get(
-        `http://localhost:5050/users/follow/${data}`
+        `https://social-media-app-backend-production.up.railway.app/users/follow/${data}`
       );
       const data1 = response.data;
       setFollowers(data1);

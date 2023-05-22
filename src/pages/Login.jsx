@@ -36,7 +36,9 @@ export default function Login() {
         localStorage.getItem(import.meta.env.REACT_APP_LOCALHOST_KEY)
       )._id;
       setId(data);
-      const dato = await axios.get(`http://localhost:5050/users/${data}`);
+      const dato = await axios.get(
+        `https://social-media-app-backend-production.up.railway.app/users/${data}`
+      );
       setCurrentUserName(dato.data.username);
       setBackground(dato.data.background);
       setCurrentUserImage(dato.data.avatarImage);
@@ -107,7 +109,7 @@ export default function Login() {
       bodyFormData.append("username", username);
       bodyFormData.append("background", background[0]);
       const resp = await axios.put(
-        `http://localhost:5050/users/${id}`,
+        `https://social-media-app-backend-production.up.railway.app/users/${id}`,
         bodyFormData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -115,7 +117,7 @@ export default function Login() {
       );
       setCurrentUserName(username);
       setBackground(background);
-      window.location.reload()
+      window.location.reload();
       console.log(resp.data);
     } catch (error) {
       console.log(error.response);
@@ -129,8 +131,8 @@ export default function Login() {
   //   const resp = await axios.put(`${editRoute}/${id}`, bodyFormData, {
   //     headers: { "Content-Type": "multipart/form-data" },
   //   });
-  //  
-  //   
+  //
+  //
   // };
 
   const loginForm = () => (
@@ -189,7 +191,7 @@ export default function Login() {
               {/* imagen de fondo */}
               <div className="flex flex-col justify-center items-center">
                 <img
-                   src={background}//hacerlo dinamico con la db
+                  src={background} //hacerlo dinamico con la db
                   alt=""
                   className="w-full h-60 2xl:h-510 shadow-lg object-cover rounded-lg"
                 />

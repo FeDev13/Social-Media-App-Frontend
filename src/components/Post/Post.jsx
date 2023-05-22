@@ -23,7 +23,9 @@ const Post = ({ post, userprofile }) => {
         localStorage.getItem(import.meta.env.REACT_APP_LOCALHOST_KEY)
       )._id;
       setId(data);
-      const dato = await axios.get(`http://localhost:5050/users/${data}`);
+      const dato = await axios.get(
+        `https://social-media-app-backend-production.up.railway.app/users/${data}`
+      );
       setCurrentUserName(dato.data.username);
       setCurrentUserImage(dato.data.avatarImage);
     };
@@ -35,9 +37,14 @@ const Post = ({ post, userprofile }) => {
   //funcion de likes
   const likeHandler = () => {
     try {
-      axios.put("http://localhost:5050/posts/" + post._id + "/like", {
-        userId: userprofile._id,
-      }); //ruta del like
+      axios.put(
+        "https://social-media-app-backend-production.up.railway.app/posts/" +
+          post._id +
+          "/like",
+        {
+          userId: userprofile._id,
+        }
+      ); //ruta del like
     } catch (err) {}
 
     if (like) {
@@ -57,10 +64,15 @@ const Post = ({ post, userprofile }) => {
       comment: `${commentwriting}`,
     };
     try {
-      axios.put("http://localhost:5050/posts/" + post._id + "/comment", {
-        userId: id,
-        value: comment,
-      });
+      axios.put(
+        "https://social-media-app-backend-production.up.railway.app/posts/" +
+          post._id +
+          "/comment",
+        {
+          userId: id,
+          value: comment,
+        }
+      );
     } catch (err) {}
     setComments(comments.concat(comment));
   };

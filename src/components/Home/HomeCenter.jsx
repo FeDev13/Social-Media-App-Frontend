@@ -5,7 +5,8 @@ import Post from "../Post/Post";
 import UserPost from "../UserPost/UserPost";
 
 export function HomeCenter({ username }) {
-  const url = "http://localhost:5050/posts/";
+  const url =
+    "https://social-media-app-backend-production.up.railway.app/posts";
   const [data, setData] = useState([]);
   const [dataUser, setDataUser] = useState([]);
 

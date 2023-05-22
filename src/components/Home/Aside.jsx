@@ -26,7 +26,7 @@ const Aside = () => {
   const handleFollow = async (id) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/users/follow/${userId}`,
+        `https://social-media-app-backend-production.up.railway.app/users/follow/${userId}`,
         {
           follower: id,
         }
@@ -84,7 +84,6 @@ const Aside = () => {
     getFollowerUsers();
   }, [allUsers]);
 
-
   const getFollowerUsers = async () => {
     const followingResponse = await axios.get(
       `http://localhost:5050/users/follow/${userId}`
@@ -97,7 +96,6 @@ const Aside = () => {
     );
     setLoading(true);
   }, [following]);
-
 
   return (
     <>
@@ -127,9 +125,9 @@ const Aside = () => {
           <div className="w-full flex flex-col gap-y-1">
             {loading && notFollowing.length > 0 && (
               <>
-            <h4 className=" text-sm  mt-2 mb-2  text font-semibold text-center">
-              RECOMMENDATION
-            </h4>
+                <h4 className=" text-sm  mt-2 mb-2  text font-semibold text-center">
+                  RECOMMENDATION
+                </h4>
                 {notFollowing.slice(0, 5).map((Element) => {
                   return (
                     <>
@@ -140,11 +138,11 @@ const Aside = () => {
                             href={"/Profile/" + Element._id}
                           >
                             <div className="w-full text-center flex items-center gap-4">
-                            <img
-                              alt=""
-                              src={`data:image/svg+xml;base64,${Element.avatarImage}`}
-                              className="w-12 h-10"
-                            />
+                              <img
+                                alt=""
+                                src={`data:image/svg+xml;base64,${Element.avatarImage}`}
+                                className="w-12 h-10"
+                              />
                               <h3 className=" font-extralight">
                                 {Element.username}
                               </h3>
@@ -167,9 +165,9 @@ const Aside = () => {
           </div>
           <div className="w-full">
             <h4 className=" text-sm text font-semibold text-center p-2">
-            FOLLOWING
+              FOLLOWING
             </h4>
-            {allUsers.slice(3,8).map((Element) => {
+            {allUsers.slice(3, 8).map((Element) => {
               return (
                 <>
                   <div className="flex justify-between p-2 items-center max-xl:px-0 ">
@@ -180,9 +178,8 @@ const Aside = () => {
                         className="w-12 h-10"
                       />
                       <div className="w-[80%]">
-                      <h3 className=" font-extralight">{Element.username}</h3>
+                        <h3 className=" font-extralight">{Element.username}</h3>
                       </div>
-                     
                     </div>
                   </div>
                 </>

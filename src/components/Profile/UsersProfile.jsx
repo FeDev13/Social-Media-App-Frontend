@@ -10,7 +10,7 @@ function ProfileUsers() {
     "https://images.unsplash.com/photo-1673447043169-a309c86f822c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDczfGlVSXNuVnRqQjBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
   let { id } = useParams();
 
-  const url = `http://localhost:5050/users/${id}`;
+  const url = `https://social-media-app-backend-production.up.railway.app/users/${id}`;
 
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [currentUserName, setCurrentUserName] = useState(undefined);

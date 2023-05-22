@@ -8,7 +8,7 @@ import axios from "axios";
 
 const userPosts = () => {
   let { id } = useParams();
-  const url2 = `http://localhost:5050/posts/${id}`;
+  const url2 = `https://social-media-app-backend-production.up.railway.app/posts/${id}`;
   const [posts, setPosts] = useState([]);
   const PF = import.meta.env.VITE_PUBLIC_FOLDER;
 

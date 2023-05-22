@@ -8,7 +8,7 @@ import { allUsersRoute } from "../../utils/APIRoutes";
 import { Emoji } from "emoji-picker-react";
 
 export function Search() {
-  const url = `http://localhost:5050/users`;
+  const url = `https://social-media-app-backend-production.up.railway.app/users`;
   const [users, setUsers] = useState([]);
   const [id, setId] = useState("");
   const navigate = useNavigate();

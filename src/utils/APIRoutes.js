@@ -1,4 +1,5 @@
-export const host = "http://localhost:5050";
+export const host =
+  "https://social-media-app-backend-production.up.railway.app/";
 export const loginRoute = `${host}/users/login`;
 export const registerRoute = `${host}/users/register`;
 export const logoutRoute = `${host}/users/logout`;

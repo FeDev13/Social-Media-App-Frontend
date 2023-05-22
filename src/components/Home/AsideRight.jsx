@@ -19,7 +19,7 @@ const AsideRight = () => {
         localStorage.getItem(import.meta.env.REACT_APP_LOCALHOST_KEY)
       )._id;
       const responseFollower = await axios.get(
-        `http://localhost:5050/users/following/${data}`
+        `https://social-media-app-backend-production.up.railway.app/users/following/${data}`
       );
       const dataFollower = responseFollower.data;
       setFollowers(dataFollower);

@@ -40,7 +40,9 @@ export default function Profile() {
         localStorage.getItem(import.meta.env.REACT_APP_LOCALHOST_KEY)
       )._id;
       setId(data);
-      const dato = await axios.get(`http://localhost:5050/users/${data}`);
+      const dato = await axios.get(
+        `https://social-media-app-backend-production.up.railway.app/users/${data}`
+      );
       setCurrentUserName(dato.data.username);
       setBackground(dato.data.background);
       setCurrentUserImage(dato.data.avatarImage);
@@ -57,7 +59,7 @@ export default function Profile() {
       bodyFormData.append("descripcion", descripcion);
       bodyFormData.append("background", background[0]);
       const resp = await axios.put(
-        `http://localhost:5050/users/${id}`,
+        `https://social-media-app-backend-production.up.railway.app/users/${id}`,
         bodyFormData,
         {
           headers: { "Content-Type": "multipart/form-data" },
